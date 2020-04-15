@@ -1,3 +1,4 @@
 module.exports={
-    MONGOURL:"mongodb://localhost/fullstackwebapp"
+    MONGOURL:"mongodb://localhost/fullstackwebapp",
+ 
 }

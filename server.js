@@ -4,6 +4,8 @@ const port =process.env.PORT || 4000
 const mongoose = require("mongoose");
 const mongodb = require('./config/db').MONGOURL
 const bodyparser = require('body-parser')
+const passport = require('passport')
+
 
 // database connection
 mongoose
@@ -19,11 +21,11 @@ mongoose
 app.use(bodyparser.json()); 
 app.use(bodyparser.urlencoded({extended:false})) 
 
+// passport middleware
+app.use(passport.initialize())
 
-
-app.get('/', (req, res)=>{
-    res.send('hello')
-})
+// passport congfiguration
+require('./config/passport')(passport)
 
 const userRoute = require('./routes/api/users')
 const profileRoute = require("./routes/api/profile");
